@@ -1,5 +1,7 @@
-python reduce.py
-python -m pymagnitude.converter \
-  -i crawl-300d-2M-small.vec \
-  -o crawl-300d-2M-small.magnitude
-python similars.py
+mkdir -p docs
+cp -r src/* docs
+drop-inline-css -r docs -o docs
+minify -r docs -o docs
+cp node_modules/sql.js-httpvfs/dist/sqlite.worker.js docs/sql.js-httpvfs/
+cp node_modules/sql.js-httpvfs/dist/sql-wasm.wasm docs/sql.js-httpvfs/
+deno bundle src/index.js > docs/index.js
