@@ -575,7 +575,6 @@ async function loadDBWorker() {
     dbWorker = await createDbWorker([
         config
     ], "/siminym-en/sql.js-httpvfs/sqlite.worker.js", "/siminym-en/sql.js-httpvfs/sql-wasm.wasm");
-    searchSiminyms("run");
 }
 let dbWorker;
 loadConfig();
