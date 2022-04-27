@@ -5,3 +5,5 @@ crawl-300d-2M.vec
 crawl-300d-2M-small.vec
 crawl-300d-2M-small.magnitude
 mGSL
+words.lst
+siminyms.tsv
