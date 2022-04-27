@@ -511,14 +511,14 @@ function toggleDarkMode() {
 function changeLang() {
     const langSelect = document.getElementById("lang");
     const lang = langSelect.options[langSelect.selectedIndex].value;
-    location.href = `https://marmooo.github.io/wncc-${lang}/`;
+    location.href = `https://marmooo.github.io/siminym-${lang}/`;
 }
 function search() {
     const word = document.getElementById("searchText").value;
     searchSiminyms(word, 1000);
-    searchSiminyms(word, 3000);
     searchSiminyms(word, 5000);
     searchSiminyms(word, 10000);
+    searchSiminyms(word, 30000);
 }
 function iosCopyToClipboard(el) {
     el = typeof el === "string" ? document.querySelector(el) : el;
@@ -580,19 +580,17 @@ async function loadDBWorker(n) {
         config
     ], "/siminym-en/sql.js-httpvfs/sqlite.worker.js", "/siminym-en/sql.js-httpvfs/sql-wasm.wasm");
 }
-async function loadDBWorkers() {
+function loadDBWorkers() {
     loadDBWorker(1000);
-    loadDBWorker(3000);
     loadDBWorker(5000);
     loadDBWorker(10000);
+    loadDBWorker(30000);
 }
 const dbWorkers = {};
 loadConfig();
 loadDBWorkers();
 document.addEventListener("keydown", function(event) {
-    if (event.key == "Enter") {
-        search();
-    }
+    if (event.key == "Enter") search();
 }, false);
 document.getElementById("toggleDarkMode").onclick = toggleDarkMode;
 document.getElementById("lang").onchange = changeLang;
