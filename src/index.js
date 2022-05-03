@@ -28,7 +28,7 @@ function search() {
   searchSiminyms(word, 1000);
   searchSiminyms(word, 5000);
   searchSiminyms(word, 10000);
-  searchSiminyms(word, 30000);
+  searchSiminyms(word, 50000);
 }
 
 function iosCopyToClipboard(el) {
@@ -118,14 +118,14 @@ function loadDBWorkers() {
     loadDBWorker(1000),
     loadDBWorker(5000),
     loadDBWorker(10000),
-    loadDBWorker(30000),
+    loadDBWorker(50000),
   ];
   return Promise.all(promises);
 }
 
 const dbWorkers = {};
 loadConfig();
-await loadDBWorkers();
+loadDBWorkers();
 
 document.addEventListener("keydown", function (event) {
   if (event.key == "Enter") search();
