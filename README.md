@@ -5,7 +5,7 @@
 ## Installation
 
 - install
-  [google-ngram-small-en](http://github.com/marmooo/google-ngram-small-en)
+  [marmooo/google-ngram-small-en](http://github.com/marmooo/google-ngram-small-en)
   licensed under the [CC BY 4.0](http://creativecommons.org/licenses/by/4.0/)
 - install [marmooo/mGSL](https://github.com/marmooo/mgsl) licensed under the
   [CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/)
