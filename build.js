@@ -1,26 +1,27 @@
-import { readLines } from "https://deno.land/std/io/mod.ts";
-import { DB } from "https://deno.land/x/sqlite@v3.3.0/mod.ts";
+import { Database } from "https://deno.land/x/sqlite3@0.9.1/mod.ts";
 
-const remoteDB = new DB("remote.db");
-remoteDB.query("pragma synchronouse=OFF");
-remoteDB.query("pragma journal_mode=WAL");
-remoteDB.query(`
+const remoteDB = new Database("remote.db");
+remoteDB.run("pragma synchronouse=OFF");
+remoteDB.run("pragma journal_mode=WAL");
+remoteDB.run(`
   CREATE TABLE IF NOT EXISTS siminyms (
     lemma TEXT,
     words TEXT
   )
 `);
-const insertCollocation = remoteDB.prepareQuery(`
+const insertCollocation = remoteDB.prepare(`
   INSERT INTO siminyms (lemma, words) VALUES(?, ?);
 `);
 
-const fileReader = await Deno.open("siminyms.tsv");
-remoteDB.query("begin");
-for await (const line of readLines(fileReader)) {
-  const [lemma, siminyms] = line.split("\t");
-  insertCollocation.execute([lemma, siminyms]);
-}
-remoteDB.query("commit");
-remoteDB.query(`
+const tsv = Deno.readTextFileSync("siminyms.tsv");
+const rows = tsv.trimEnd().split("\n").map((line) => {
+  return line.split("\t");
+});
+remoteDB.transaction((data) => {
+  for (const row of data) {
+    insertCollocation.run(...row);
+  }
+})(rows);
+remoteDB.run(`
   CREATE INDEX IF NOT EXISTS siminyms_index ON siminyms(lemma)
 `);
