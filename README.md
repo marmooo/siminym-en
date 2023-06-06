@@ -15,8 +15,7 @@
 ## Build
 
 ```
-bash build-dict.sh
-bash build-db.sh
+deno run -A build-all-db.js
 bash build.sh
 ```
 

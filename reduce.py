@@ -1,11 +1,15 @@
+import sys
+
+threshold = int(sys.argv[1])
+
 words = {}
 with open("words.lst", "w") as fout:
     count = 0
     with open("mGSL/dist/mGSL.lst") as fin:
         for line in fin:
             count += 1
-            # if count > 1000:
-            #     break
+            if count > threshold:
+                break
             word = line.split("\t", 1)[0]
             words[word] = True
             fout.write(word + "\n")
