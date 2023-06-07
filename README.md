@@ -2,6 +2,11 @@
 
 [A dictionary of basic vocabulary with high degree of similarity](https://marmooo.github.io/siminym-en/).
 
+## Requirements
+
+- [rye](https://github.com/mitsuhiko/rye)
+- `sudo apt install clang` for [spotify/annoy](https://github.com/spotify/annoy)
+
 ## Installation
 
 - install [marmooo/mGSL](https://github.com/marmooo/mgsl) licensed under the
