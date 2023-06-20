@@ -1,7 +1,7 @@
 size=$1
 
 rm remote.db
-rm -rf docs/db
+rm -rf docs/db/$size
 deno run -A --unstable build-db.js
 bash optimize.sh
 mkdir -p docs/db/$size
