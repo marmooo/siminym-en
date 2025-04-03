@@ -5,17 +5,17 @@
 ## Requirements
 
 - [rye](https://github.com/mitsuhiko/rye)
-- `sudo apt install clang` for [spotify/annoy](https://github.com/spotify/annoy)
+- `sudo apt install clang libstdc++-12-dev` for
+  [spotify/annoy](https://github.com/spotify/annoy)
 
 ## Installation
 
 - install [marmooo/mGSL](https://github.com/marmooo/mgsl) licensed under the
-  [CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/)
+  [CC BY-SA-4.0](http://creativecommons.org/licenses/by-sa/4.0/)
 - install
   [crawl-300d-2M.vec.zip](https://dl.fbaipublicfiles.com/fasttext/vectors-english/crawl-300d-2M.vec.zip)
   from [fastText](https://fasttext.cc/docs/en/crawl-vectors.html) licensed under
-  the [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)
-- `npm install`
+  the [CC-BY-SA-3.0](https://creativecommons.org/licenses/by-sa/3.0/)
 - `rye sync`
 
 ## Build
@@ -32,4 +32,4 @@ bash build.sh
 
 ## License
 
-CC BY-SA 4.0
+CC-BY-SA-4.0
