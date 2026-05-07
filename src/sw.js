@@ -1,4 +1,4 @@
-const cacheName = "2025-12-30 00:00";
+const cacheName = "2026-05-08 00:00";
 const urlsToCache = [
   "/siminym-en/index.js",
   "/siminym-en/sql.js-httpvfs/sql-wasm.wasm",
